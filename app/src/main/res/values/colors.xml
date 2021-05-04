@@ -16,4 +16,5 @@
     <color name="card_orange">#FFAE00</color>
     <color name="card_pink">#FF0090</color>
     <color name="card_yellow">#F6E606</color>
+    <color name="icon_dark">#525252</color>
 </resources>

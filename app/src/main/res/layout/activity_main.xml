@@ -1,142 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.activity.MainActivity">
+    tools:context=".ui.activity.MainActivity"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/header"
         layout="@layout/item_header"/>
 
-    <androidx.core.widget.NestedScrollView
-        android:clipToPadding="false"
-        android:scrollbars="vertical"
-        android:scrollbarStyle="outsideOverlay"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/header">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
+        <androidx.core.widget.NestedScrollView
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            android:scrollbarStyle="outsideOverlay"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/text_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tue, 23/08/21"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textSize="14sp"
-                android:fontFamily="@font/productsans_medium"/>
-
-            <RelativeLayout
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:id="@+id/card_current_weather"
+            <LinearLayout
+                android:id="@+id/content"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:background="@drawable/bg_card"
-                android:elevation="10dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/text_temp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25°"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="90sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/productsans_regular"/>
-
-                <TextView
-                    android:id="@+id/text_info"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_below="@id/text_temp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Clouds &amp; Sun"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="15sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/productsans_light"/>
-
-                <TextView
-                    android:layout_below="@id/text_info"
-                    android:id="@+id/title_humidity"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Humidity"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="16sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/productsans_bold"/>
-
-                <TextView
-                    android:layout_below="@id/title_humidity"
-                    android:id="@+id/text_humidity"
+                    android:visibility="gone"
+                    android:id="@+id/text_date"
                     android:layout_marginBottom="30dp"
-                    android:visibility="visible"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:alpha="0.6"
-                    android:text="90%"
                     android:gravity="center"
                     android:layout_gravity="center"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="24sp"
-                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/productsans_medium"
+                    tools:text="Tue, 23/08/21"
+                    tools:visibility="visible"/>
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/card_shimmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:shimmer_base_alpha="0.7">
+
+                    <RelativeLayout
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="30dp"
+                        android:id="@+id/card_current_weather"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_card"
+                        android:elevation="10dp">
+
+                        <TextView
+                            android:id="@+id/text_temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="90sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/productsans_regular"
+                            tools:text="25°"/>
+
+                        <TextView
+                            android:id="@+id/text_info"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_below="@id/text_temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/productsans_light"
+                            tools:text="Clouds &amp; Sun"/>
+
+                        <TextView
+                            android:layout_below="@id/text_info"
+                            android:id="@+id/title_humidity"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/productsans_bold"
+                            tools:text="Humidity"/>
+
+                        <TextView
+                            android:layout_below="@id/title_humidity"
+                            android:id="@+id/text_humidity"
+                            android:layout_marginBottom="30dp"
+                            android:visibility="visible"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.6"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="24sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/productsans_bold"
+                            tools:text="90%"/>
+
+                    </RelativeLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <TextView
+                    android:id="@+id/text_title_forecast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/title_text_forecast"
+                    android:gravity="center"
+                    android:layout_gravity="start"
+                    android:textSize="@dimen/text_title_size"
                     android:fontFamily="@font/productsans_bold"/>
 
-            </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="20dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:clipToPadding="false"
+                    android:id="@+id/list_forecast"
+                    android:scrollbars="none"
+                    android:overScrollMode="never"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"/>
 
-            <TextView
-                android:id="@+id/text_title_forecast"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:text="Next 7 days"
-                android:gravity="center"
-                android:layout_gravity="start"
-                android:textSize="@dimen/text_title_size"
-                android:fontFamily="@font/productsans_bold"/>
+            </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="20dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:clipToPadding="false"
-                android:id="@+id/list_forecast"
-                android:scrollbars="none"
-                android:overScrollMode="never"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"/>
+        </androidx.core.widget.NestedScrollView>
 
-        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    </androidx.core.widget.NestedScrollView>
-
-</RelativeLayout>
+</LinearLayout>

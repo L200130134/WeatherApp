@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="title_text_forecast">Next 7 days</string>
+    <string name="hint_search_by_city_name">Search by city name</string>
 </resources>
