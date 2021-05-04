@@ -65,6 +65,16 @@
                         android:background="@drawable/bg_card"
                         android:elevation="10dp">
 
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:id="@+id/animation_view"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true" />
+
                         <TextView
                             android:id="@+id/text_temp"
                             android:layout_width="wrap_content"
