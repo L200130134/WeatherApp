@@ -51,10 +51,10 @@ public class WeatherDetailView extends CoordinatorLayout implements View.OnClick
     private static final long ANIMATION_EXIT_DURATION = 300;
 
     @Nullable
-    public static WeatherDetailView getView(final View cuurentView, final ViewGroup parentView) {
-        if (cuurentView != null && parentView != null) {
-            final RectModel rectModel = new RectModel(cuurentView);
-            final WeatherDetailView wdv = new WeatherDetailView(cuurentView.getContext(), rectModel);
+    public static WeatherDetailView getView(final View currentView, final ViewGroup parentView) {
+        if (currentView != null && parentView != null) {
+            final RectModel rectModel = new RectModel(currentView);
+            final WeatherDetailView wdv = new WeatherDetailView(currentView.getContext(), rectModel);
             parentView.addView(wdv);
             return wdv;
         }

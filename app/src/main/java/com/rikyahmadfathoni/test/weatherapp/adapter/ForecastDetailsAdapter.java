@@ -70,6 +70,9 @@ public class ForecastDetailsAdapter extends RecyclerView.Adapter<ForecastDetails
                 final int resId = item.getIcon();
                 if (resId != 0) {
                     icon.setImageResource(resId);
+                    icon.setVisibility(View.VISIBLE);
+                } else {
+                    icon.setVisibility(View.GONE);
                 }
                 textName.setText(item.getName());
                 textValue.setText(item.getValue());
