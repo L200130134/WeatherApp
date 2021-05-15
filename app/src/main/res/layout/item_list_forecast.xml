@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_shimmer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:shimmer_base_alpha="0.7">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="150dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"
+        android:background="@drawable/bg_card_small"
+        android:elevation="10dp">
+
+        <TextView
+            android:id="@+id/text_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:fontFamily="@font/productsans_bold"
+            tools:text="Monday"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_weather"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:id="@+id/text_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/productsans_medium"
+            tools:text="40°"
+            android:textColor="@color/white"
+            android:textSize="27sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/text_temp_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/productsans_medium"
+                android:alpha="0.7"
+                tools:text="30°"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/text_temp_max"
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/productsans_medium"
+                tools:text="32°"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.facebook.shimmer.ShimmerFrameLayout>
